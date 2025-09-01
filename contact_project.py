@@ -25,11 +25,13 @@ def view():
     for row in rows:
         print(row)
 def update():
-    a = input("Enter the id you want to update: ")
+    e = input("Enter the id you want to update: ")
+    a = input("Enter the new id: ")
     b = input("Enter the new name: ")
     c = input("Enter the new phone: ")
     d = input("Enter the new email: ")
-    cursor.execute("UPDATE contact SET contact_id = ? name = ? phone = ? email = ?)",(a,b,c,d))
+    cursor.execute("UPDATE contact SET contact_id = ?, name = ?, phone = ?, email = ? WHERE contact_id = ?",
+                   (a,b,c,d,e))
     conn.commit()
     print("Your contact has been updated")
 def remove():
